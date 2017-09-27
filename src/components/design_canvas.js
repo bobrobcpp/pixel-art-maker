@@ -6,8 +6,9 @@ class DesignCanvas extends React.Component{
   }
   render(){
     return(
-      <div className="desing-canvas">
+      <div className="design-canvas">
         Design Canvas
+        {this.props.gridHeight}
       </div>
     );
 
