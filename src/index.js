@@ -9,16 +9,17 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      gridHeight: '0',
-      gridWidth: '0'
+      gridWidth: '0',
+      gridHeight: '0'
+
     };
     this.onDimensionChange = this.onDimensionChange.bind(this);
   }
 
-  onDimensionChange(height, width){
+  onDimensionChange(width, height){
     this.setState({
-      gridHeight: height,
-      gridWidth: width
+      gridWidth: width,
+      gridHeight: height
     })
   }
 
@@ -27,9 +28,17 @@ class App extends React.Component {
     return (
       <div className="container">
         <h1> PIXEL MAKER </h1>
-        <GridForm onDimensionChange={this.onDimensionChange} />
-        <ColorPicker />
-        <DesignCanvas />
+
+        <GridForm onDimensionChange={this.onDimensionChange}
+          {...this.state}
+        />
+
+        <ColorPicker
+        />
+
+        <DesignCanvas className="design-canvas"
+        {...this.state}
+        />
       </div>
     );
   }
