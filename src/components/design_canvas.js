@@ -13,21 +13,25 @@ class DesignCanvas extends React.Component{
   }
 
   createGrid(){
+    var self = this;
     console.log("Creating a " + this.props.gridHeight  + " X " + this.props.gridWidth + " grid");
-    var body = document.getElementsByTagName("body")[0];
+    $('table').remove();
     var tbl = document.createElement("table");
     var tblBody = document.createElement("tbody");
-    for (var i = 0; i < 2; i++) {
+    for (var i = 0; i < this.props.gridWidth; i++) {
     // creates a table row
     var row = document.createElement("tr");
 
-    for (var j = 0; j < 2; j++) {
+    for (var j = 0; j < this.props.gridHeight; j++) {
       // Create a <td> element and a text node, make the text
       // node the contents of the <td>, and put the <td> at
       // the end of the table row
       var cell = document.createElement("td");
-      var cellText = document.createTextNode("cell in row "+i+", column "+j);
-      cell.appendChild(cellText);
+      cell.className = "cell";
+      $(cell).on("click", function(e) {
+        console.log(self.props.currentColor);
+      $(this).css("background-color",self.props.currentColor);
+      });
       row.appendChild(cell);
     }
 

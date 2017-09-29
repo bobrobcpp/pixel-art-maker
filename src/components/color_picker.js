@@ -9,10 +9,13 @@ class ColorPicker extends React.Component{
     return(
       <div className="color-picker">
         Pick a color
-        <input type="color" />
+        <input type="color" onChange={event => this.onInputChange(event.target.value)} />
       </div>
       );
 
+  }
+  onInputChange(col){
+    this.props.onColorChange(col);
   }
 
 }

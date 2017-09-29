@@ -9,17 +9,25 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      gridWidth: '0',
-      gridHeight: '0'
+      gridWidth: 1,
+      gridHeight: 1,
+      currentColor: '#ffffff'
 
     };
     this.onDimensionChange = this.onDimensionChange.bind(this);
+    this.onColorChange = this.onColorChange.bind(this);
   }
 
   onDimensionChange(width, height){
     this.setState({
       gridWidth: width,
       gridHeight: height
+    })
+  }
+
+  onColorChange(color){
+    this.setState({
+      currentColor: color
     })
   }
 
@@ -34,6 +42,8 @@ class App extends React.Component {
         />
 
         <ColorPicker
+        onColorChange={this.onColorChange}
+        {...this.state}
         />
 
         <DesignCanvas className="design-canvas"
