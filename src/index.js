@@ -11,8 +11,8 @@ class App extends React.Component {
     this.state = {
       gridWidth: 1,
       gridHeight: 1,
-      currentColor: '#000000'
-
+      currentColor: '#000000',
+      edited: false
     };
     this.onDimensionChange = this.onDimensionChange.bind(this);
     this.onColorChange = this.onColorChange.bind(this);
@@ -29,6 +29,10 @@ class App extends React.Component {
     this.setState({
       currentColor: color
     })
+  }
+
+  toggleEdited(){
+
   }
 
 

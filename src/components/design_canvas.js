@@ -26,11 +26,12 @@ class DesignCanvas extends React.Component{
       // Create a <td> element and a text node, make the text
       // node the contents of the <td>, and put the <td> at
       // the end of the table row
+      const tileColor = self.props.currentColor;
       var cell = document.createElement("td");
       cell.className = "cell";
       $(cell).on("click", function(e) {
-        console.log(self.props.currentColor);
-      $(this).css("background-color",self.props.currentColor);
+        // console.log(self.props.currentColor);
+      $(this).css("background-color",tileColor);
       });
       row.appendChild(cell);
     }
