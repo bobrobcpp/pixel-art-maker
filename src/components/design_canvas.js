@@ -6,7 +6,6 @@ class DesignCanvas extends React.Component{
   render(){
     return(
       <div id="design-canvas">
-        Design Canvas
         {this.createGrid()}
       </div>
     );
